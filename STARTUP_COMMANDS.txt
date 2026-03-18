@@ -1,0 +1,84 @@
+# Fit Feast - Quick Start Commands (Windows PowerShell)
+
+# ============================================
+# TERMINAL 1: Start the Backend Server
+# ============================================
+
+cd "c:\Users\salah\OneDrive\Desktop\Fit Feast\backend\fitfeast_backend"
+C:\Users\salah\AppData\Local\Programs\Python\Python314\python.exe manage.py runserver 0.0.0.0:8000
+
+# Backend will be available at:
+# http://localhost:8000/api
+
+
+# ============================================
+# TERMINAL 2: Start the Frontend Server
+# ============================================
+
+cd "c:\Users\salah\OneDrive\Desktop\Fit Feast\frontend"
+npm start
+
+# Frontend will be available at:
+# http://localhost:3000
+
+
+# ============================================
+# USEFUL COMMANDS
+# ============================================
+
+# Create a test user (from Django shell):
+# python manage.py shell
+# from users.models import User
+# User.objects.create_user(username='testuser', email='test@example.com', password='password123')
+
+# Run migrations:
+# python manage.py migrate
+
+# Check database:
+# python manage.py dbshell
+
+# Clear database:
+# python manage.py flush
+
+# Collect static files:
+# python manage.py collectstatic
+
+# ============================================
+# TESTING THE API
+# ============================================
+
+# Register (returns token):
+# POST http://localhost:8000/api/auth/register/
+# {
+#   "username": "john",
+#   "email": "john@example.com", 
+#   "password": "secure123"
+# }
+
+# Login (returns token):
+# POST http://localhost:8000/api/auth/login/
+# {
+#   "username": "john",
+#   "password": "secure123"
+# }
+
+# Get Profile (requires token in Authorization header):
+# GET http://localhost:8000/api/users/me/
+# Headers: Authorization: Token <token>
+
+# Get All Dishes:
+# GET http://localhost:8000/api/plats/
+
+# ============================================
+# TROUBLESHOOTING
+# ============================================
+
+# If you get "Address already in use":
+# netstat -ano | findstr :8000
+# taskkill /PID <PID> /F
+
+# If frontend can't connect to backend:
+# Check CORS in settings.py - should include http://localhost:3000
+
+# If database connection fails:
+# Check MySQL is running and credentials in settings.py

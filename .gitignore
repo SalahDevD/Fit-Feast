@@ -48,6 +48,10 @@ package-lock.json
 
 # IDE
 .idea/
+
+# Frontend embedded git repository
+frontend/.git
+frontend/.git/**
 .DS_Store
 *.swp
 *.swo

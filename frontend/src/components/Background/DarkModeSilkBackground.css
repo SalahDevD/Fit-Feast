@@ -1,0 +1,92 @@
+.dark-mode-silk-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.05), transparent 70%);
+}
+
+.silk-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.silk-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.silk-path {
+  animation: silk-wave 8s ease-in-out infinite;
+  filter: blur(0.5px) drop-shadow(0 0 20px rgba(34, 197, 94, 0.15));
+}
+
+.silk-path-2 {
+  animation: silk-wave-2 10s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.silk-path-3 {
+  animation: silk-wave-3 12s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+@keyframes silk-wave {
+  0%, 100% {
+    d: path('M0,540 Q480,350 960,540 T1920,540 L1920,1080 L0,1080 Z');
+  }
+  50% {
+    d: path('M0,540 Q480,420 960,540 T1920,540 L1920,1080 L0,1080 Z');
+  }
+}
+
+@keyframes silk-wave-2 {
+  0%, 100% {
+    d: path('M0,600 Q480,450 960,600 T1920,600 L1920,1080 L0,1080 Z');
+  }
+  50% {
+    d: path('M0,600 Q480,520 960,600 T1920,600 L1920,1080 L0,1080 Z');
+  }
+}
+
+@keyframes silk-wave-3 {
+  0%, 100% {
+    d: path('M0,650 Q480,500 960,650 T1920,650 L1920,1080 L0,1080 Z');
+  }
+  50% {
+    d: path('M0,650 Q480,580 960,650 T1920,650 L1920,1080 L0,1080 Z');
+  }
+}
+
+/* Fallback for browsers that don't support `d` attribute animation */
+@supports not (d: path('M0,0')) {
+  .silk-path {
+    animation: silk-opacity 8s ease-in-out infinite;
+  }
+
+  .silk-path-2 {
+    animation: silk-opacity 10s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+
+  .silk-path-3 {
+    animation: silk-opacity 12s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+
+  @keyframes silk-opacity {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
